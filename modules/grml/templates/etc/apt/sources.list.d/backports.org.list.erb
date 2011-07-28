@@ -1,0 +1,8 @@
+##
+## THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+##
+
+<% if lsbdistrelease != "testing" %>
+deb	http://mirror.netcologne.de/debian-backports/ <%= lsbdistcodename %>-backports main 
+<% end %>
+

@@ -1,0 +1,5 @@
+# This file is managed by puppet, module "grml".
+# DO NOT EDIT, YOUR CHANGES WILL BE LOST.
+en_US.UTF-8 UTF-8
+de_AT.UTF-8 UTF-8
+de_DE.UTF-8 UTF-8

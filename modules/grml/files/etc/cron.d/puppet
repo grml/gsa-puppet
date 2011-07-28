@@ -1,0 +1,7 @@
+##
+## THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+## USE: git clone git+ssh://$USER@puppet.debian.org/srv/puppet.debian.org/git/dsa-puppet.git
+##
+
+SHELL=/bin/bash
+12,34 * * * * root if [ -x /usr/sbin/puppetd ]; then sleep $(( $RANDOM \% 600 )) ; if [ -x /usr/bin/timeout ]; then TO="timeout 3600"; else TO=""; fi; $TO /usr/sbin/puppetd -o --no-daemonize; fi
