@@ -103,6 +103,16 @@ class grml {
 		refreshonly => true,
 	}
 
+   import "resolver"
+
+   resolv_conf { "grml":
+        domainname  => "grml.org",
+        searchpath  => ['grml.org'],
+        nameservers =>
+            ['10.0.3.1',
+             '81.3.3.81',
+             '81.3.2.130'],
+       }
 }
 
 
