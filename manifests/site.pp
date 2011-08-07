@@ -11,4 +11,26 @@ node default {
     include sudo
 		include serial
 
-} 
+}
+
+node base {
+    include apt-keys
+    include sudo
+    include grml
+}
+
+node father.grml.org inherits base {
+}
+
+node web.grml.org,misc.grml.org,repos.grml.org,web.grml.org,deb.grml.org inherits base {
+    include serial
+    include collectd::client
+    class resolver { "grml":
+        domainname  => "grml.org",
+        searchpath  => ['grml.org'],
+        nameservers =>
+            ['10.0.3.1',
+             '81.3.3.81',
+             '81.3.2.130'],
+       }
+}
