@@ -19,10 +19,11 @@ node base {
     include grml
 }
 
-node web.grml.org,misc.grml.org,repos.grml.org,web.grml.org,deb.grml.org inherits base {
+node "web.grml.org","misc.grml.org","repos.grml.org","deb.grml.org" inherits base {
     include serial
     include collectd::client
-    class resolver { "grml":
+    include resolver
+    resolv_conf { "grml":
         domainname  => "grml.org",
         searchpath  => ['grml.org'],
         nameservers =>
