@@ -20,6 +20,7 @@ node "web.grml.org","misc.grml.org","repos.grml.org","deb.grml.org" inherits bas
     include serial
     include collectd::client
     include resolver
+    include ldap
     resolv_conf { "grml":
         domainname  => "grml.org",
         searchpath  => ['grml.org'],
