@@ -21,15 +21,11 @@
 #                       nameservers => ['192.168.1.100', '192.168.1.101', '192.168.1.102'],
 #       }
 #
-class resolver {
-        # noop
-}
-
-define resolv_conf($domainname = "$domain", $searchpath, $nameservers) {
-        file { "/etc/resolv.conf":
-                owner   => root,
-                group   => root,
-                mode    => 644,
-                content => template("resolver/resolv.conf.erb"),
-        }
+class resolver ($domainname = "$domain", $searchpath, $nameservers) {
+    file { "/etc/resolv.conf":
+        owner   => root,
+        group   => root,
+        mode    => 644,
+        content => template("resolver/resolv.conf.erb"),
+    }
 }
