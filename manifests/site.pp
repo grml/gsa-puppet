@@ -19,9 +19,6 @@ node base {
     include grml
 }
 
-node father.grml.org inherits base {
-}
-
 node web.grml.org,misc.grml.org,repos.grml.org,web.grml.org,deb.grml.org inherits base {
     include serial
     include collectd::client
