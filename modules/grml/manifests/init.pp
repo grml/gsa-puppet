@@ -43,8 +43,9 @@ class grml {
 				notify  => Exec["apt-get update"];
         "/etc/xinetd.d/check_mk":
             require => Package["xinetd"],
-            source => "puppet:///modules/grml/etc/xinetd.d/check_mk"
+            source => "puppet:///modules/grml/etc/xinetd.d/check_mk",
             notify  => Exec["/etc/init.d/xinetd restart"];
+
 		"/etc/apt/sources.list.d/grml.list":
 			content => template("grml/etc/apt/sources.list.d/grml.list.erb"),
 				notify  => Exec["apt-get update"];
