@@ -23,35 +23,57 @@ class grml {
 	] : ensure => installed }
 	file	{
 		"/etc/cron.d/puppet":
+            owner => root,
+            group => root,
 			source => "puppet:///modules/grml/etc/cron.d/puppet";
 		"/etc/apt/apt.conf.d/local-recommends":
+            owner => root,
+            group => root,
 			source => "puppet:///modules/grml/etc/apt/apt.conf.d/local-recommends";
 		"/etc/apt/apt.conf.d/periodic-updates":
+            owner => root,
+            group => root,
 			source => "puppet:///modules/grml/etc/apt/apt.conf.d/periodic-updates";
         "/usr/local/bin/check_apt-updates":
+            owner => root,
+            group => root,
             source =>
             "puppet:///modules/grml/usr/local/bin/check_apt-updates";
          "/usr/lib/check_mk_agent/local/apt":
+            owner => root,
+            group => root,
             source =>
-            "puppet:///modules/grml/usr/lib/check_mk_agent/local/apt";
+                "puppet:///modules/grml/usr/lib/check_mk_agent/local/apt";
          "/usr/lib/check_mk_agent/local/puppet":
+            owner => root,
+            group => root,
             source =>
             "puppet:///modules/grml/usr/lib/check_mk_agent/local/puppet";
 		"/etc/apt/sources.list.d/backports.org.list":
+            owner => root,
+            group => root,
 			require => Package["lsb-release"],
 			content => template("grml/etc/apt/sources.list.d/backports.org.list.erb"),
 				notify  => Exec["apt-get update"];
         "/etc/xinetd.d/check_mk":
+            group => root,
+            owner => root,
             require => Package["xinetd"],
             source => "puppet:///modules/grml/etc/xinetd.d/check_mk";
 
 		"/etc/apt/sources.list.d/grml.list":
+            owner => root,
+            group => root,
 			content => template("grml/etc/apt/sources.list.d/grml.list.erb"),
 				notify  => Exec["apt-get update"];
 		"/etc/apt-dater-host.conf":
+            owner => root,
+            group => root,
 			source => "puppet:///modules/grml/etc/apt-dater-host.conf";
 
         "/etc/apt/sources.list.d/grml-infrastructure.list":
+            owner => root,
+            group => root,
             content =>
             template("grml/etc/apt/sources.list.d/grml-infrastructure.list.erb"),
             notify  => Exec["apt-get update"];
