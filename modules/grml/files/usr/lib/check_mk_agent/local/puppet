@@ -1,0 +1,18 @@
+#!/bin/bash
+
+STATE='/var/lib/puppet/state/state.yaml'
+MAXAGE=6300 # puppet state should not be older than 105 Min.
+
+if [ -f $STATE ]
+then
+        FILEAGE=$(($(date +%s) - $(stat -c '%Y' "$STATE")))
+        if [ $FILEAGE -gt $MAXAGE ]
+        then
+                echo "2 puppet - statefile $STATE is out of date ($FILEAGE sec old)"
+        else
+                echo "0 puppet - statefile $STATE is ok ($FILEAGE sec old)"
+        fi
+else
+        echo "3 puppet - statefile $STATE does not exisit"
+fi
+

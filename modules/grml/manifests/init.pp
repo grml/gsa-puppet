@@ -17,7 +17,8 @@ class grml {
 	etckeeper,
     check-mk-agent,
 	rsync,
-	locales
+	locales,
+    libnagios-plugin-perl
 	] : ensure => installed }
 	file	{
 		"/etc/cron.d/puppet":
@@ -32,6 +33,9 @@ class grml {
          "/usr/lib/check_mk_agent/local/apt":
             source =>
             "puppet:///modules/grml/usr/lib/check_mk_agent/local/apt";
+         "/usr/lib/check_mk_agent/local/puppet":
+            source =>
+            "puppet:///modules/grml/usr/lib/check_mk_agent/local/puppet";
 		"/etc/apt/sources.list.d/backports.org.list":
 			require => Package["lsb-release"],
 			content => template("grml/etc/apt/sources.list.d/backports.org.list.erb"),
