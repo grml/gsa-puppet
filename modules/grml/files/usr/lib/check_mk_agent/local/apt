@@ -1,0 +1,38 @@
+#!/bin/bash
+
+CACHE="/var/cache/check_apt"
+MAXAGE=86400 # checking every 12 hours is ok
+
+if [ -e $CACHE ]
+then
+        FILEAGE=$(($(date +%s) - $(stat -c '%Y' "$CACHE")))
+else
+        FILEAGE=99999999
+fi
+
+if [ $FILEAGE -gt $MAXAGE ]
+
+then
+        OUTPUT=$(check_apt-updates)
+
+        STATUS=$?
+
+        case $STATUS in
+                0)
+                        MSG=OK
+                        ;;
+                1)
+                        MSG=WARNING
+                        ;;
+                2)
+                        MSG=CRITICAL
+                        ;;
+                3)
+                        MSG=UNKNOWN
+                        ;;
+        esac
+        echo "$? apt - $MSG - $OUTPUT (from $(date))" > $CACHE
+fi
+
+cat $CACHE
+

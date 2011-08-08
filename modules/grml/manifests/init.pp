@@ -15,6 +15,7 @@ class grml {
 	imvirt,
 	grml-etc-core,
 	etckeeper,
+    check-mk-agent,
 	rsync,
 	locales
 	] : ensure => installed }
@@ -25,6 +26,12 @@ class grml {
 			source => "puppet:///modules/grml/etc/apt/apt.conf.d/local-recommends";
 		"/etc/apt/apt.conf.d/periodic-updates":
 			source => "puppet:///modules/grml/etc/apt/apt.conf.d/periodic-updates";
+        "/usr/local/bin/check_apt-updates":
+            source =>
+            "puppet:///modules/grml/usr/local/bin/check_apt-updates";
+         "/usr/lib/check_mk_agent/local/apt":
+            source =>
+            "puppet:///modules/grml/usr/lib/check_mk_agent/local/apt";
 		"/etc/apt/sources.list.d/backports.org.list":
 			require => Package["lsb-release"],
 			content => template("grml/etc/apt/sources.list.d/backports.org.list.erb"),
