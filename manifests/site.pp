@@ -8,7 +8,7 @@ node base {
     include grml
 }
 
-node "father.grml.org" inherits base {
+node "father.grml.org", "amd64.grml.org" inherits base {
     #noop
 }
 
