@@ -34,6 +34,12 @@ class grml {
 				notify  => Exec["apt-get update"];
 		"/etc/apt-dater-host.conf":
 			source => "puppet:///modules/grml/etc/apt-dater-host.conf";
+
+        "/etc/apt/sources.list.d/grml-infrastructure.list":
+            content =>
+            template("grml/etc/apt/sources.list.d/grml-infrastructure.list.erb"),
+            notify  => Exec["apt-get update"];
+
 	}
 	set_alternatives { "editor":
 		linkto => "/usr/bin/vim.basic",
