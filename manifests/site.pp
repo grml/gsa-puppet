@@ -16,7 +16,7 @@ node "monitoring.grml.org" inherits base {
     #noop
 }
 
-node "web.grml.org","misc.grml.org","repos.grml.org","deb.grml.org" inherits base {
+node "web.grml.org","mail.grml.org", "misc.grml.org","repos.grml.org","deb.grml.org" inherits base {
     include serial
     include collectd::client
     include resolver
