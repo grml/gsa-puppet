@@ -9,6 +9,8 @@ class apt-keys {
     "/etc/apt/trusted-keys.d/deb.grml.org.asc":
 	    source  => "puppet:///modules/apt-keys/deb.grml.org.asc",
 		    mode    => 664,
+            owner   => "root",
+            group   => "root",
 		    notify  => Exec["apt-keys-update"],
 		    ;
     }

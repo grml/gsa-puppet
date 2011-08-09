@@ -9,8 +9,12 @@ class ldap {
 
 	file {
 		"/etc/nslcd.conf":
-			source => "puppet:///modules/ldap/etc/nslcd.conf";
+            owner   => "root",
+            group   => "root",
+            source => "puppet:///modules/ldap/etc/nslcd.conf";
 		"/etc/nsswitch.conf":
+		    owner   => "root",
+			group   => "root",
 			source => "puppet:///modules/ldap/etc/nsswitch.conf";
 	}
 
@@ -22,7 +26,6 @@ class ldap {
 	cfengine::append_if_no_such_line{pam_mkhomedir:
 		file => "/etc/pam.d/common-session",
 		line => "session    required    pam_mkhomedir.so skel=/etc/skel/ umask=0022"
-		
-		}
+	}
 
 }
