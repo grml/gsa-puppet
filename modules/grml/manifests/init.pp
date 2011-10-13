@@ -121,10 +121,19 @@ class grml {
                                user   => "$name",
                 }
         }
+    define ssh::key::jimmy(){
+                ssh_authorized_key { "jimmy for user ${name}":
+                               ensure => present,
+                               type   => "rsa",
+                               key    => "AAAAB3NzaC1yc2EAAAADAQABAAABAQDYHTT6JOhkjSueoBj90eTAHzendWBlZ8Jl+40ckWf7OVQnZ7+enxKlDAVSeHDu13S4Ni9zUxztgdkG068H2ETIaJAFrr5ddef9JKLGkDJsJOyuKH6eW0/aEGCisb1OL/PvGO4YBp9VVCW0IO69F3wKK2vcogimU3CynE5HMfjDRAv0c15FFjzRtGN4Je16acNTZ3Ta8M/k4RaKKXn6c4YjPdPgTnJ7d3M3gMPY4DX7RoOFtMrAH3MZnAmeSqmpRgeJ0jaPk0ayjxKUmzSsFu5Q4Z6kquI//e5Pw7XcNHYZb4RB/uUy3Q4txV6hVjv0UZ++CK50LjYxozRz+NaVz+mv",
+                               user   => "$name",
+                }
+        }
 	ssh::key::mru{['root']:}
 	ssh::key::ch{['root']:}
 	ssh::key::formorer{['root']:}
 	ssh::key::mika{['root']:}
+	ssh::key::jimmy{['root']:}
 
 	# minimal locales
 	file { "/etc/locale.gen":
