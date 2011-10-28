@@ -77,7 +77,10 @@ class grml {
             content =>
             template("grml/etc/apt/sources.list.d/grml-infrastructure.list.erb"),
             notify  => Exec["apt-get update"];
-
+        "/etc/ssl/certs/grml-ca.pem":
+            owner => root,
+            group => root,
+            source => "puppet:///modules/grml/etc/ssl/certs/grml-ca.pem";
         }
         set_alternatives { "editor":
                 linkto => "/usr/bin/vim.basic",
