@@ -159,7 +159,7 @@ class grml {
                 refreshonly => true,
         }
 
-        @@sshkey { $hostname: type => ssh-rsa, key => $sshrsakey }
+        @@sshkey { $hostname: type => ssh-rsa, host_aliases => $fqdn, key => $sshrsakey }
         Sshkey <<| |>>
 }
 
