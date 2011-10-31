@@ -17,6 +17,7 @@ class backup {
                   user   => "$name",
        }
    }
+   ssh::key::backuppc{['backuppc']:}
 
 }
 
