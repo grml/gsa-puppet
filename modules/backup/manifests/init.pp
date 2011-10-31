@@ -9,6 +9,13 @@ class backup {
     shell => '/bin/bash',
    }
  
+   sshkey { "buildhost.grml.org":
+       key =>
+           'AAAAB3NzaC1yc2EAAAADAQABAAABAQDTIyLNwuGI1Ojn/WQLmBueD5XC/DkmYRylqpthKyippJqqcxEfeZtKw+o/qnR7l17k+L4sEHL3nzQco9cG6G5tNpfFsMfOcAEyJQ/H3K6FqAiO3I9aJeRH/ow9I+Ze/q/hhbbrIm5QsY6gqQIFiMS8QNtHzilHizA3e2luDY+9ANyF9fnBmNbzZrABOSfMsVQ3hlJPSUXk5JidDDFD26sjBFTBUNG4eaTaMAbfMlAqOVn+wiCWPpj3Bvb9HB65H/rXBC2qQquRqp6GUJKuC6Md7gGFYkB2J6D6uuwNwWT2OAzrvYfyR8OKD+8Ws50NWPGaPkpjvMaKEhk/UgLPHIT5',
+           name => 'buildhost.grml.org',
+           type => 'ssh-rsa'
+   }
+
    define ssh::key::backuppc(){
        ssh_authorized_key { "backuppc@buildhost":
            ensure => present,
@@ -18,6 +25,7 @@ class backup {
        }
    }
    ssh::key::backuppc{['backuppc']:}
+
 
 }
 
