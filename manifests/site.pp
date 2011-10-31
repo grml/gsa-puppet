@@ -6,6 +6,7 @@ node base {
     include apt-keys
     include sudo
     include grml
+    include backup
 }
 
 node "father.grml.org", "amd64.grml.org" inherits base {
