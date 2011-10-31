@@ -161,6 +161,10 @@ class grml {
 
         @@sshkey { $hostname: type => ssh-rsa, host_aliases => $fqdn, key => $sshrsakey }
         Sshkey <<| |>>
+
+        file { "/etc/ssh/ssh_known_hosts":
+            mode    => 644,
+        }
 }
 
 
