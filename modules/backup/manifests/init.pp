@@ -4,7 +4,7 @@ class backup {
     groups => 'nogroup',
     comment => 'Backuppc User',
     ensure => 'present',
-    managed_home => 'true',
+    managehome => 'true',
     home => '/var/lib/backuppc',
     shell => '/bin/bash',
     system => 'true',
