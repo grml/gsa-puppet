@@ -159,8 +159,13 @@ class grml {
                 refreshonly => true,
         }
 
+        @@sshkey { $hostname: type => rsa, key => $sshrsakey }
+        Sshkey <<| |>>
+
         @@sshkey { $hostname: type => dsa, key => $sshdsakey }
         Sshkey <<| |>>
+
 }
+
 
 
