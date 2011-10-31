@@ -7,7 +7,6 @@ class backup {
     managehome => 'true',
     home => '/var/lib/backuppc',
     shell => '/bin/bash',
-    system => 'true',
    }
  
 }
