@@ -162,8 +162,6 @@ class grml {
         @@sshkey { $hostname: type => rsa, key => $sshrsakey }
         Sshkey_rsa <<| |>>
 
-        @@sshkey { $hostname: type => dsa, key => $sshdsakey }
-        Sshkey_dsa <<| |>>
 
 }
 
