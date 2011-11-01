@@ -19,7 +19,6 @@ class grml {
         xinetd,
         rsync,
         locales,
-        augeas-lenses,
         libnagios-plugin-perl
         ] : ensure => installed }
         file    {
