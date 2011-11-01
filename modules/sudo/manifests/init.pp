@@ -1,6 +1,7 @@
 class sudo {
   package{"sudo": ensure => installed }
   package{"augeas-lenses": ensure => installed }
+  package{"libaugeas-ruby": ensure => installed }
   augeas{"sudoers-wheel":
     context => "/files/etc/sudoers",
 	    changes => [
