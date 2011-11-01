@@ -3,6 +3,7 @@ class sudo {
   package{"augeas-lenses": ensure => installed }
   package{"libaugeas-ruby": ensure => installed }
   augeas{"sudoers-wheel":
+    require => [Package["libaugeas-ruby"]]
     context => "/files/etc/sudoers",
 	    changes => [
 	    "set spec[user = '%wheel']/user %wheel",
