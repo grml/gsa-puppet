@@ -3,7 +3,6 @@ class sudo {
   package{"augeas-lenses": ensure => installed }
   package{"libaugeas-ruby": ensure => installed }
   augeas{"sudoers-wheel":
-    require => [Package["libaugeas-ruby"]]
     context => "/files/etc/sudoers",
 	    changes => [
 	    "set spec[user = '%wheel']/user %wheel",
@@ -20,6 +19,6 @@ class sudo {
         "set spec[user = 'backuppc']/host_group/command[1] '/usr/bin/rsync'",
 	    "set /Defaults/env_keep/var[01] MAINTAINER"
 	    ],
-	    require => [ Package["sudo"], Package["augeas-lenses"] ]
+	    require => [ Package["sudo"], Package["augeas-lenses"], Package["libaugeas-ruby" ]
   }
 }
