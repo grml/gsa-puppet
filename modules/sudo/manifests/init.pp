@@ -19,6 +19,6 @@ class sudo {
         "set spec[user = 'backuppc']/host_group/command[1] '/usr/bin/rsync'",
 	    "set /Defaults/env_keep/var[01] MAINTAINER"
 	    ],
-	    require => [ Package["sudo"], Package["augeas-lenses"], Package["libaugeas-ruby" ]
+	    require => [ Package["sudo"], Package["augeas-lenses"], Package["libaugeas-ruby" ]]
   }
 }
