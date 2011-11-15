@@ -31,7 +31,7 @@ then
                         MSG=UNKNOWN
                         ;;
         esac
-        echo "$? apt - $MSG - $OUTPUT (from $(date))" > $CACHE
+        echo "$STATUS apt - $MSG - $OUTPUT (from $(date))" > $CACHE
 fi
 
 cat $CACHE
