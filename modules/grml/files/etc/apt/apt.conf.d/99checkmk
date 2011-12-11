@@ -1,0 +1,1 @@
+DPkg::Post-Invoke      { "test -f /var/cache/check_apt && rm /var/cache/check_apt"; };
