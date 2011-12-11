@@ -81,6 +81,10 @@ class grml {
             owner => root,
             group => root,
             source => "puppet:///modules/grml/etc/ssl/certs/grml-ca.pem";
+        "/etc/apt/apt.conf.d/99checkmk":
+            owner => root,
+            group => root,
+            source => "puppet:///modules/grml/etc/apt/apt.conf.d/99checkmk";
         }
         set_alternatives { "editor":
                 linkto => "/usr/bin/vim.basic",
