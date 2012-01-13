@@ -1,1 +1,1 @@
-DPkg::Post-Invoke      { "if [ -f /var/cache/check_apt ]; then ; rm /var/cache/check_apt ; fi ; exit 0  "; };
+DPkg::Post-Invoke      { "if [ -e /var/cache/check_apt ]; then rm /var/cache/check_apt ; fi"; };
