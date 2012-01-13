@@ -158,6 +158,7 @@ class grml {
                 owner => "root",
                 group => "root",
                 require => Package["locales"],
+                notify => Exec["locale-gen"],
         }
         exec { "locale-gen":
                 refreshonly => true,
