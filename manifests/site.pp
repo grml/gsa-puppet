@@ -50,7 +50,7 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
         @ferm::rule { "bittorrent":
             prio            => "00",
             description     => "bittorrent",
-            rule            => "&SERVICE( (tcp, udp), 51413)"
+            rule            => "&SERVICE( (tcp udp), 51413)"
         }
     }
 	
