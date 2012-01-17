@@ -32,8 +32,7 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     include collectd::client
     include resolver
     include ldap
-    include ferm 
-
+    
     case $hostname {
     	deb: { tag (webserver)
                tag (rsync)
@@ -43,6 +42,8 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
 
 	
     if tagged(webserver) {
+        include ferm 
+
 	    @ferm::rule { "http":
             prio            => "00",
             description     => "Allow web access",
@@ -51,6 +52,8 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     }
 
     if tagged(rsync) {
+        include ferm 
+
 	    @ferm::rule { "rsync":
             prio            => "00",
             description     => "Allow rsync access",
