@@ -43,7 +43,7 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     }
 
     if $hostname == 'web' {
-        include ferm::bittorrent;
+        include ferm::bittorrent
     }
 
     resolv_conf { "grml":
