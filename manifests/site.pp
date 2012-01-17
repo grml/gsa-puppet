@@ -36,10 +36,25 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     case $hostname {
     	deb,www: { tag (webserver)
                tag (rsync)
+               tag (smtp)
                }
     }
 
+    if $hostname == 'www' {
+        @ferm::rule { "bttrack":
+            prio            => "00",
+            description     => "bttrack",
+            rule            => "&SERVICE(tcp, 6969)"
+        }
+
+        @ferm::rule { "bittorrent":
+            prio            => "00",
+            description     => "bittorrent",
+            rule            => "&SERVICE( (tcp, udp), 51413)"
+        }
+    }
 	
+
     if tagged(webserver) {
         include ferm 
 
@@ -59,6 +74,17 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
             rule            => "&SERVICE((tcp udp), (rsync))"
 	    } 
     }
+
+    if tagged(smtp) {
+        include ferm 
+
+	    @ferm::rule { "smtp":
+            prio            => "00",
+            description     => "Allow smtp access",
+            rule            => "&SERVICE(tcp, smtp)"
+	    } 
+    }
+
 
     resolv_conf { "grml":
         domainname  => "grml.org",
