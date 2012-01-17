@@ -20,11 +20,17 @@ node "monitoring.grml.org" inherits base {
 }
 
 node "buildhost.grml.org" inherits base {
-    #noop
+    include ferm
+    include ferm::www
+    @ferm::rule { "jenkins":
+        description     => "Allow jenkins access",
+        rule            => "&SERVICE(tcp, 8080)"
+    }
 }
 
 node "wien.grml.org" inherits base {
-    #noop
+    include ferm
+    include ferm::www
 }
 
 
