@@ -34,23 +34,27 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     include ldap
 
     case $hostname {
-    	deb,web: {
-               include ferm
-               include ferm::rsync
-               include ferm::smtp
-               include ferm::www
-               }
-    }
-
-    if $hostname == 'web' {
-        include ferm::bittorrent
-    }
-
-    if $hostname == 'misc' {
-        include ferm
-        include ferm::jabber
-        include ferm::dns
-        include ferm::smtp
+        deb,web: {
+            include ferm
+            include ferm::rsync
+            include ferm::smtp
+            include ferm::www
+            if $hostname == 'web' {
+                include ferm::bittorrent
+            }
+        }
+        misc: {
+            include ferm
+            include ferm::jabber
+            include ferm::smtp
+            include ferm::dns
+        }
+        mail: {
+            include ferm
+            include ferm::smtp
+            include ferm::imaps
+            include ferm::www
+        }
     }
 
     resolv_conf { "grml":
