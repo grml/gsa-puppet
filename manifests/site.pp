@@ -32,59 +32,19 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     include collectd::client
     include resolver
     include ldap
-    
+
     case $hostname {
-    	deb,web: { tag (webserver)
-               tag (rsync)
-               tag (smtp)
+    	deb,web: {
+               include ferm
+               include ferm::rsync
+               include ferm::smtp
+               include ferm::www
                }
     }
 
     if $hostname == 'web' {
-        @ferm::rule { "bttrack":
-            prio            => "00",
-            description     => "bttrack",
-            rule            => "&SERVICE(tcp, 6969)"
-        }
-
-        @ferm::rule { "bittorrent":
-            prio            => "00",
-            description     => "bittorrent",
-            rule            => "&SERVICE( (tcp udp), 51413)"
-        }
+        include ferm::bittorrent;
     }
-	
-
-    if tagged(webserver) {
-        include ferm 
-
-	    @ferm::rule { "http":
-            prio            => "00",
-            description     => "Allow web access",
-            rule            => "&SERVICE(tcp, (http https))"
-	    } 
-    }
-
-    if tagged(rsync) {
-        include ferm 
-
-	    @ferm::rule { "rsync":
-            prio            => "00",
-            description     => "Allow rsync access",
-            rule            => "&SERVICE((tcp udp), (rsync))"
-	    } 
-    }
-
-    if tagged(smtp) {
-        include ferm 
-
-	    @ferm::rule { "smtp":
-            prio            => "00",
-            description     => "Allow smtp access",
-            rule            => "&SERVICE(tcp, smtp)"
-	    } 
-    }
-
 
     resolv_conf { "grml":
         domainname  => "grml.org",
