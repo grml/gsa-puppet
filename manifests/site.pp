@@ -29,8 +29,7 @@ node "buildhost.grml.org" inherits base {
 }
 
 node "wien.grml.org" inherits base {
-    include ferm
-    include ferm::www
+    #noop 
 }
 
 
