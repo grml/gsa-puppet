@@ -15,7 +15,8 @@ node "father.grml.org", "amd64.grml.org" inherits base {
 }
 
 node "monitoring.grml.org" inherits base {
-    #noop
+    include ferm
+    include ferm::www
 }
 
 node "buildhost.grml.org" inherits base {
