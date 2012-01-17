@@ -34,13 +34,13 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     include ldap
     
     case $hostname {
-    	deb,www: { tag (webserver)
+    	deb,web: { tag (webserver)
                tag (rsync)
                tag (smtp)
                }
     }
 
-    if $hostname == 'www' {
+    if $hostname == 'web' {
         @ferm::rule { "bttrack":
             prio            => "00",
             description     => "bttrack",
