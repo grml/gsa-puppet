@@ -49,6 +49,11 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
             include ferm::smtp
             include ferm::dns
         }
+        repos: {
+            include ferm
+            include ferm::git
+            include ferm::www
+        }
         mail: {
             include ferm
             include ferm::smtp
