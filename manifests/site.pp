@@ -31,6 +31,17 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     include collectd::client
     include resolver
     include ldap
+
+    case $hostname {
+    	deb.grml.org:  {
+		include ferm
+		@ferm::rule { "http":
+			description     => "Allow HTTP",
+			 rule            => "&SERVICE(tcp, (http))"
+		}
+	}
+    }
+
     resolv_conf { "grml":
         domainname  => "grml.org",
         searchpath  => ['grml.org'],
