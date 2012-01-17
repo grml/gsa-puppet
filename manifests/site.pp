@@ -46,6 +46,13 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
         include ferm::bittorrent
     }
 
+    if $hostname == 'misc' {
+        include ferm
+        include ferm::jabber
+        include ferm::dns
+        include ferm::smtp
+    }
+
     resolv_conf { "grml":
         domainname  => "grml.org",
         searchpath  => ['grml.org'],
