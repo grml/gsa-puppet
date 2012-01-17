@@ -34,10 +34,9 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     include ldap
     
     case $hostname {
-    	deb: { tag (webserver)
+    	deb,www: { tag (webserver)
                tag (rsync)
                }
-        www: { tag (webserver) }
     }
 
 	
