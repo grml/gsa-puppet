@@ -49,6 +49,10 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
                 include ferm::bittorrent
             }
         }
+        jenkins: {
+            include ferm
+            include ferm::www
+        }
         misc: {
             include ferm
             include ferm::jabber
