@@ -22,27 +22,39 @@ class ferm {
         "/etc/ferm/rules.d":
             ensure => directory,
             purge   => true,
+            owner   => root,
+            group   => root,
             force   => true,
             recurse => true,
             notify  => Exec["ferm restart"],
             require => Package["ferm"];
         "/etc/ferm":
             ensure  => directory,
+            owner   => root,
+            group   => root,
             mode    => 0755;
         "/etc/ferm/conf.d":
-            ensure => directory,
+            ensure  => directory,
+            owner   => root,
+            group   => root,
             require => Package["ferm"];
         "/etc/default/ferm":
             source  => "puppet:///modules/ferm/ferm.default",
+            owner   => root,
+            group   => root,
             require => Package["ferm"],
             notify  => Exec["ferm restart"];
         "/etc/ferm/ferm.conf":
             source  => "puppet:///modules/ferm/ferm.conf",
+            owner   => root,
+            group   => root,
             require => Package["ferm"],
             mode    => 0400,
             notify  => Exec["ferm restart"];
         "/etc/ferm/conf.d/defs.conf":
             content => template("ferm/defs.conf.erb"),
+            owner   => root,
+            group   => root,
             require => Package["ferm"],
             mode    => 0400,
             notify  => Exec["ferm restart"];
