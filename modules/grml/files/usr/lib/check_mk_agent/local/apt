@@ -5,7 +5,12 @@ MAXAGE=86400 # checking every 12 hours is ok
 
 if [ -e $CACHE ]
 then
-        FILEAGE=$(($(date +%s) - $(stat -c '%Y' "$CACHE")))
+        if grep -q UNKNOWN $CACHE
+        then
+            FILEAGE=99999999
+        else
+            FILEAGE=$(($(date +%s) - $(stat -c '%Y' "$CACHE")))
+        fi
 else
         FILEAGE=99999999
 fi
