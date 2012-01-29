@@ -47,6 +47,7 @@ class grml {
          "/usr/lib/check_mk_agent/local/puppet":
             owner => root,
             group => root,
+            require => Package["check-mk-agent"],
             source =>
             "puppet:///modules/grml/usr/lib/check_mk_agent/local/puppet";
                 "/etc/apt/sources.list.d/backports.org.list":
