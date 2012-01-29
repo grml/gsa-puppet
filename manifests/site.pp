@@ -10,7 +10,7 @@ node base {
 
 }
 
-node "father.grml.org", "amd64.grml.org" inherits base {
+node "father.grml.org", "amd64.grml.org", "klaus.grml.org" inherits base {
     #noop
 }
 
@@ -29,7 +29,7 @@ node "buildhost.grml.org" inherits base {
 }
 
 node "wien.grml.org" inherits base {
-    #noop 
+    #noop
 }
 
 
@@ -82,6 +82,6 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
        }
 }
 
-# vim:set et: 
+# vim:set et:
 # vim:set sts=4 ts=4:
 # vim:set shiftwidth=4:
