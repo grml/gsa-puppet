@@ -118,7 +118,7 @@ class grml {
     ssh_authorized_key{"ch for ${name}":
       user => $name,
       key => 'AAAAB3NzaC1yc2EAAAABIwAAAgEAofxbWxWtZU35kJUPYZrMi1+Zw49VmVn7sD0iqvN3xB1T6YnnBsXBYA+N/SdsA2Jsq+1cKGX87uWRn8EzDZ0IERD9lDOslb2rQ09h44bDDD0bplPuE+yOXDFWRgFOYN13I7c0O0NZ4ue1TE8I2TyWpUksbas4JgDGT/1/EsSRZJsoEXpXtvYCRwngGWVenjBxFFSo1DwwYv8yc97+cXZoOUd8F78Rb9H70GI4tshrlntXQI8vyoiIAc7lPVJYBTuENJpa/bvYysFxjpjQrpK1w7PtgM/f1F2QG9KDPsGqqfGXsMcmIrHVkl4dF/ffpYpKn4+fu0hY0O4O2y9gSU7Xi57IIGx1oX0C7eyHIctWo0z8+13n7yigU3VnigDZlK3sKZdNAekFBjuXFxbXoqf/zdESlsGVo7aL36+Hw7XSH7oexD1E+2xpNKhiF/ZY5WzzWvenNHHKHkppTKDlk00fh5ssM/F3TpclwHy6NkrkY9SV6JvT9fNp2noSGS1LH4Ee9sc88IFYp8lReSeto+LxnJxdVUhFnbfgkeqT4FSwVKp/tvv90hIX1G+4nYlcN+SijbBo4wxnBIsoGBfcwKDwdlY9J+UogNWoZmcIKaO9rFF74J2TYNnnxMPkQ7hl1hUQUanY3NPokRGA0Z0Q2Kn28lYkE6KHLUdFC9ur0t/BpWs=',
-      ensure => present,
+      ensure => absent,
       type   => "rsa",
     }
   }
