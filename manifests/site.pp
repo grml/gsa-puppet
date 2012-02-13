@@ -48,10 +48,10 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
             include ferm
             include ferm::www
         }
-        forman: {
+        foreman: {
           include ferm
           include ferm::www
-          @ferm::rule { "jenkins":
+          @ferm::rule { "foreman":
             description     => "Allow foreman access",
             rule            => "&SERVICE(tcp, 3000)"
           }
