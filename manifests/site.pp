@@ -75,14 +75,24 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
         }
     }
 
-    resolv_conf { "grml":
-        domainname  => "grml.org",
-        searchpath  => ['grml.org'],
-        nameservers =>
-            ['10.0.3.1',
-             '81.3.3.81',
-             '81.3.2.130'],
-       }
+
+      case $hostname {
+        blog,foreman,backup,jenkins: {
+          resolv_conf { "grml":
+            domainname  => "grml.org",
+            searchpath  => ['grml.org'],
+            nameservers => ['10.0.3.1', '89.207.128.252', '89.207.130.252'],
+          }
+        }
+        default: {
+          resolv_conf { "grml":
+            domainname  => "grml.org",
+            searchpath  => ['grml.org'],
+            nameservers => ['10.0.3.1', '81.3.3.81', '81.3.2.130'],
+          }
+        }
+      }
+
 }
 
 # vim:set et:
