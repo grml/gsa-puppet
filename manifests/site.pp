@@ -33,7 +33,7 @@ node "wien.grml.org" inherits base {
 }
 
 
-node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.org", "jenkins.grml.org", "backup.grml.org" inherits base {
+node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.org", "jenkins.grml.org", "backup.grml.org", "blog.grml.org" inherits base {
     include serial
     include collectd::client
     include resolver
@@ -49,7 +49,7 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
                 include ferm::bittorrent
             }
         }
-        jenkins: {
+        jenkins,blog: {
             include ferm
             include ferm::www
         }
@@ -85,3 +85,4 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
 # vim:set et:
 # vim:set sts=4 ts=4:
 # vim:set shiftwidth=4:
+# eval: (
