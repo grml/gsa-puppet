@@ -28,11 +28,6 @@ node "buildhost.grml.org" inherits base {
     }
 }
 
-node "wien.grml.org" inherits base {
-    #noop
-}
-
-
 node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.org", "jenkins.grml.org", "backup.grml.org", "blog.grml.org", "foreman.grml.org" inherits base {
     include serial
     include collectd::client
