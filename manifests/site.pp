@@ -33,7 +33,7 @@ node "wien.grml.org" inherits base {
 }
 
 
-node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.org", "jenkins.grml.org", "backup.grml.org", "blog.grml.org" inherits base {
+node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.org", "jenkins.grml.org", "backup.grml.org", "blog.grml.org", "foreman.grml.org" inherits base {
     include serial
     include collectd::client
     include resolver
@@ -52,6 +52,14 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
         jenkins,blog: {
             include ferm
             include ferm::www
+        }
+        forman: {
+          include ferm
+          include ferm::www
+          @ferm::rule { "jenkins":
+            description     => "Allow foreman access",
+            rule            => "&SERVICE(tcp, 3000)"
+          }
         }
         misc: {
             include ferm
