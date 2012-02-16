@@ -2,12 +2,14 @@ Exec {
 	path => "/usr/bin:/usr/sbin:/bin:/sbin"
 }
 
-node base {
+node default {
     include apt-keys
     include sudo
     include grml
-    include backup
+}
 
+node base inherits default {
+    include backup
 }
 
 node "father.grml.org", "amd64.grml.org", "klaus.grml.org" inherits base {
