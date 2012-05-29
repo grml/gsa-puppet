@@ -5,6 +5,7 @@ define set_alternatives($linkto) {
 }
 
 class grml {
+  tag("initial")
   package { [ vim,
               zsh,
               bzip2,
