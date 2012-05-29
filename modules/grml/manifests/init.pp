@@ -148,11 +148,23 @@ class grml {
       user   => "$name",
     }
   }
+  define ssh::key::evgeni(){
+    ssh_authorized_key { "zhenech for user ${name}":
+      ensure => present,
+      type   => "rsa",
+      key    =>
+      "AAAAB3NzaC1yc2EAAAADAQABAAABAQDJOXoC+NAPExAT6ZgC5W8vH3A1UMoxOW6bhmDRr7Dv3fLIeHSi8DEqwTMW1dUtcfqO5/9AYZsSsWKSilj6jvea9jFCkGh670Qv/lasOEszJWpWq8jpQsBYEMiS2DyAJZQlZ5zep5dxW9DaMbLKdcu7mLWbf3TDp3pdeQxqSVbN224vijUPqFfE9T4C842kgezAqE2yki6zVv/QK3Mgu2o5tvIwlnUQ1tWUGyy94+7rdxQ35MGSigRvvDfr4QVJLqAZ8bSm02axWTuiinYF3OXPb3ellwDrRys97T4n2R6vJGknM9WOtkS1k2cNbM6G4HfFwcTHwjEX2yA7wZ4qVl7P",
+      user   => "$name",
+    }
+  }
+
   ssh::key::mru{['root']:}
   ssh::key::ch{['root']:}
   ssh::key::formorer{['root']:}
   ssh::key::mika{['root']:}
   ssh::key::jimmy{['root']:}
+  ssh::key::evgeni{['root']:}
+
 
   # minimal locales
   file { "/etc/locale.gen":
