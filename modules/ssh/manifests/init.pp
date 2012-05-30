@@ -36,6 +36,7 @@ class ssh {
 
     augeas { "sshd_config":
         context => "/files/etc/ssh/sshd_config",
+        notify  => Service['ssh'],
                 changes => [
                     "set UseLPK yes",
                     "set LpkServers ldap://10.0.3.1/",
