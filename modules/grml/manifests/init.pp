@@ -164,9 +164,6 @@ class grml {
   ssh::key::mika{['root']:}
   ssh::key::jimmy{['root']:}
   ssh::key::evgeni{['root']:}
-  ssh::key::evgeni{['evgeni']:}
-
-
 
   # minimal locales
   file { "/etc/locale.gen":
