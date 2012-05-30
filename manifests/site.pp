@@ -35,6 +35,7 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
     include collectd::client
     include resolver
     include ldap
+    include ssh
 
     case $hostname {
         deb,web: {
