@@ -174,7 +174,7 @@ class grml {
   ssh::key::mika{['root']:}
   ssh::key::jimmy{['root']:}
   ssh::key::evgeni{['root']:}
-  ssh::key::bionix{['root']:}
+  #ssh::key::bionix{['root']:}
 
 
   # minimal locales
