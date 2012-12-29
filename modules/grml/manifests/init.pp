@@ -158,24 +158,12 @@ class grml {
     }
   }
 
-  define ssh::key::bionix(){
-    ssh_authorized_key { "bionix for user ${name}":
-      ensure => present,
-      type   => "rsa",
-      key    =>
-      "AAAAB3NzaC1yc2EAAAADAQABAAACAQDnnnJ6fIB7+ARtrJcPoTIxTNO5BNPLo2n9nCepMLy1PxbomyGMe+iWGk3ShxyDS8RXuWPWWCIuT+c7rWqJZ88J+wToRsUH2chuLAq2UnDkaZ6KgbHdPHitEHKzqwuzJZGtM/4KfurwmoXi424U19kmhciAu+v/gG1d/E7G62qb7HiEoevy5no8NM7ofEyBeoBD4xOZz5V9xE0SgElkXgSZxY3HC37g9eNKUDvw5dlVOg2kzoJBAa8Yb2V8ZI06l7I5FNuV6my/ots7fHwYjttnwHXLdTMHGvh0Jna6jmfvrsyb6bez+73qCNAIcKc6kH5ds9MpVoWUWDGmBzn0uXwisBqTpk+eQf2MluSDH5Eo5T4WAANx4fYraSNM6zWFWNcSavjLl4uAWxD+9upXMX3PkjlnLi3bIh18ZveWr2Fcny15hOB43/7Ma6Wv18CN2glTSfZ+HZA9Axnck3d2NhW5W3csLIMs+VOMzGK2hFeEIWuQWFbGaXB+gTReEorKokS/mzgIQ9n2/cyC8AyNSdV9WQJIbUF3hGEbinmHcBc8kXPEFjDVQvtjXTzQhQaC7jykJhJLcGB5NPINxQqh+UyT4b1WfZ/LyEzTC6b1eqicBrkz0k5laS5QTrymyJDXVlt+iwHLXqCuXpaAItKYHx/G/jwAuWnjqXhdfliJ+dlqhQ==",
-      user   => "$name",
-    }
-  }
-
   ssh::key::mru{['root']:}
   ssh::key::ch{['root']:}
   ssh::key::formorer{['root']:}
   ssh::key::mika{['root']:}
   ssh::key::jimmy{['root']:}
   ssh::key::evgeni{['root']:}
-  #ssh::key::bionix{['root']:}
-
 
   # minimal locales
   file { "/etc/locale.gen":
