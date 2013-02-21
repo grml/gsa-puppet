@@ -152,8 +152,15 @@ class grml {
     ssh_authorized_key { "zhenech for user ${name}":
       ensure => present,
       type   => "rsa",
-      key    =>
-      "AAAAB3NzaC1yc2EAAAADAQABAAABAQDJOXoC+NAPExAT6ZgC5W8vH3A1UMoxOW6bhmDRr7Dv3fLIeHSi8DEqwTMW1dUtcfqO5/9AYZsSsWKSilj6jvea9jFCkGh670Qv/lasOEszJWpWq8jpQsBYEMiS2DyAJZQlZ5zep5dxW9DaMbLKdcu7mLWbf3TDp3pdeQxqSVbN224vijUPqFfE9T4C842kgezAqE2yki6zVv/QK3Mgu2o5tvIwlnUQ1tWUGyy94+7rdxQ35MGSigRvvDfr4QVJLqAZ8bSm02axWTuiinYF3OXPb3ellwDrRys97T4n2R6vJGknM9WOtkS1k2cNbM6G4HfFwcTHwjEX2yA7wZ4qVl7P",
+      key    => "AAAAB3NzaC1yc2EAAAADAQABAAABAQDJOXoC+NAPExAT6ZgC5W8vH3A1UMoxOW6bhmDRr7Dv3fLIeHSi8DEqwTMW1dUtcfqO5/9AYZsSsWKSilj6jvea9jFCkGh670Qv/lasOEszJWpWq8jpQsBYEMiS2DyAJZQlZ5zep5dxW9DaMbLKdcu7mLWbf3TDp3pdeQxqSVbN224vijUPqFfE9T4C842kgezAqE2yki6zVv/QK3Mgu2o5tvIwlnUQ1tWUGyy94+7rdxQ35MGSigRvvDfr4QVJLqAZ8bSm02axWTuiinYF3OXPb3ellwDrRys97T4n2R6vJGknM9WOtkS1k2cNbM6G4HfFwcTHwjEX2yA7wZ4qVl7P",
+      user   => "$name",
+    }
+  }
+  define ssh::key::bionix(){
+    ssh_authorized_key { "bionix for user ${name}":
+      ensure => present,
+      type   => "rsa",
+      key    => "AAAAB3NzaC1yc2EAAAADAQABAAACAQDnnnJ6fIB7+ARtrJcPoTIxTNO5BNPLo2n9nCepMLy1PxbomyGMe+iWGk3ShxyDS8RXuWPWWCIuT+c7rWqJZ88J+wToRsUH2chuLAq2UnDkaZ6KgbHdPHitEHKzqwuzJZGtM/4KfurwmoXi424U19kmhciAu+v/gG1d/E7G62qb7HiEoevy5no8NM7ofEyBeoBD4xOZz5V9xE0SgElkXgSZxY3HC37g9eNKUDvw5dlVOg2kzoJBAa8Yb2V8ZI06l7I5FNuV6my/ots7fHwYjttnwHXLdTMHGvh0Jna6jmfvrsyb6bez+73qCNAIcKc6kH5ds9MpVoWUWDGmBzn0uXwisBqTpk+eQf2MluSDH5Eo5T4WAANx4fYraSNM6zWFWNcSavjLl4uAWxD+9upXMX3PkjlnLi3bIh18ZveWr2Fcny15hOB43/7Ma6Wv18CN2glTSfZ+HZA9Axnck3d2NhW5W3csLIMs+VOMzGK2hFeEIWuQWFbGaXB+gTReEorKokS/mzgIQ9n2/cyC8AyNSdV9WQJIbUF3hGEbinmHcBc8kXPEFjDVQvtjXTzQhQaC7jykJhJLcGB5NPINxQqh+UyT4b1WfZ/LyEzTC6b1eqicBrkz0k5laS5QTrymyJDXVlt+iwHLXqCuXpaAItKYHx/G/jwAuWnjqXhdfliJ+dlqhQ==",
       user   => "$name",
     }
   }
@@ -164,6 +171,7 @@ class grml {
   ssh::key::mika{['root']:}
   ssh::key::jimmy{['root']:}
   ssh::key::evgeni{['root']:}
+  ssh::key::bionix{['root']:}
 
   # minimal locales
   file { "/etc/locale.gen":
