@@ -76,10 +76,6 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
             include ferm::imaps
             include ferm::www
         }
-        redmine: {
-            include ferm
-            include ferm::www
-        }
     }
 
 
