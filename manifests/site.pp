@@ -30,7 +30,7 @@ node "buildhost.grml.org" inherits base {
     }
 }
 
-node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.org", "jenkins.grml.org", "backup.grml.org", "blog.grml.org", "foreman.grml.org" inherits base {
+node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.org", "jenkins.grml.org", "backup.grml.org", "blog.grml.org", "foreman.grml.org", "redmine.grml.org" inherits base {
     include serial
     include collectd::client
     include resolver
@@ -74,6 +74,10 @@ node "web.grml.org","mail.grml.org","misc.grml.org","repos.grml.org","deb.grml.o
             include ferm
             include ferm::smtp
             include ferm::imaps
+            include ferm::www
+        }
+        redmine: {
+            include ferm
             include ferm::www
         }
     }
