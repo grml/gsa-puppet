@@ -14,6 +14,7 @@ class grml {
               puppet,
               apt-dater-host,
               imvirt,
+	      ncurses-term,
               grml-etc-core,
               etckeeper,
               check-mk-agent,
