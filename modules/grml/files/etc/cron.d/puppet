@@ -6,4 +6,4 @@
 SHELL=/bin/bash
 12,34 * * * * root if [ -x /usr/bin/puppet ]; then sleep $(( $RANDOM \% 600 ))
 ; if [ -x /usr/bin/timeout ]; then TO="timeout 3600"; else TO=""; fi; $TO
-/usr/sbin/puppet agent --onetime --no-daemonize; fi
+/usr/bin/puppet agent --onetime --no-daemonize; fi
