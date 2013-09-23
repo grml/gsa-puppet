@@ -4,8 +4,7 @@ VERSION="$(< /etc/debian_version)"
 
 if [ $(/usr/bin/printf "%u" $VERSION 2>/dev/null) -lt 7 ]
 then
-    echo "1 debian_version - Please upgrade to wheezy, current version is
-    $VERSION"
+    echo "1 debian_version - Please upgrade to wheezy, current version is $VERSION"
 else
     echo "0 debian_version - Debian Version is $VERSION"
 fi
