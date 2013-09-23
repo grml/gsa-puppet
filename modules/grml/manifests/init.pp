@@ -183,7 +183,7 @@ class grml {
   # minimal locales
   file { "/etc/locale.gen":
     ensure => present,
-    source => "puppet:///grml/etc/locale.gen",
+    source => "puppet:///files/grml/etc/locale.gen",
     mode => "0644",
     owner => "root",
     group => "root",
