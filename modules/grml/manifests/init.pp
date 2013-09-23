@@ -51,6 +51,12 @@ class grml {
       group => root,
       source => "puppet:///modules/grml/usr/lib/check_mk_agent/local/apt";
 
+    "/usr/lib/check_mk_agent/local/debian_version":
+      owner => root,
+      group => root,
+      source =>
+      "puppet:///modules/grml/usr/lib/check_mk_agent/local/debian_version";
+
     "/usr/lib/check_mk_agent/local/puppet":
       owner => root,
       group => root,
