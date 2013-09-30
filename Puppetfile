@@ -1,5 +1,7 @@
 mod 'puppetlabs/ruby'
-mod 'puppetlabs/mcollective'
+mod 'mcollective',
+    :git => 'https://github.com/grml/puppetlabs-mcollective.git'
+
 mod 'puppetlabs/stdlib'
 mod 'richardc/datacat'
 mod 'puppetlabs/activemq'
