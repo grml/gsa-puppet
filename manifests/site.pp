@@ -26,6 +26,7 @@ node 'father.grml.org' inherits base {
     class { '::mcollective':
         middleware       => true,
         middleware_hosts => [ 'father.grml.org' ],
+        client            => true,
     }
 }
 
