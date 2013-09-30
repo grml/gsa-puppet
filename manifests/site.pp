@@ -22,6 +22,11 @@ node 'father.grml.org' inherits base {
             remote => 'git://git.grml.org/gsa-puppet.git',
         }
 
+
+    class { '::mcollective':
+        middleware       => true,
+        middleware_hosts => [ 'father.grml.org' ],
+    }
 }
 
 node 'monitoring.grml.org' inherits base {
