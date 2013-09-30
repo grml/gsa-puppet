@@ -33,6 +33,11 @@ node 'father.grml.org' inherits base {
 node 'monitoring.grml.org' inherits base {
     include ferm
     include ferm::www
+
+    class { '::mcollective':
+        middleware_hosts => [ 'father.grml.org' ],
+    }
+
 }
 
 node 'buildhost.grml.org' inherits base {
