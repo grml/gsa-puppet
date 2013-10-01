@@ -7,4 +7,4 @@ mod 'richardc/datacat'
 mod 'puppetlabs/activemq'
 
 mod 'r10k',
-  :git => 'https://github.com/acidprime/r10k.git'
+  :git => 'https://github.com/grml/r10k'
