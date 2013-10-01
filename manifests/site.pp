@@ -12,10 +12,7 @@ node base inherits default {
     include backup
         case $hostname {
             father: {
-                class { '::trocla::master': 
-                    install_deps => false,
-                    use_rubygems => false
-                }
+                include trocla::config
 
                 class { '::mcollective':
                     middleware       => true,
