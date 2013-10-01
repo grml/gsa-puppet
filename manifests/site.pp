@@ -15,12 +15,14 @@ node base inherits default {
                 class { '::mcollective':
                     middleware       => true,
                     middleware_hosts => [ 'father.grml.org' ],
+                    psk     => trocla('mcollective', 'plain'),
                     client            => true,
                 }
             }
             default: {
                 class { '::mcollective':
                     middleware_hosts => [ 'father.grml.org' ],
+                    psk     => trocla('mcollective', 'plain'),
                 }
             }
         }
