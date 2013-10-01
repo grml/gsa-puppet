@@ -8,3 +8,5 @@ mod 'puppetlabs/activemq'
 
 mod 'r10k',
   :git => 'https://github.com/grml/r10k'
+
+mod 'puppetlabs/apt'
