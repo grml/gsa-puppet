@@ -12,7 +12,7 @@ node base inherits default {
     include backup
         case $hostname {
             father: {
-                class { '::trocla::config': 
+                class { '::trocla::master': 
                     install_deps => false,
                     use_rubygems => false
                 }
