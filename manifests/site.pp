@@ -10,10 +10,20 @@ node default {
 
 node base inherits default {
     include backup
-    class { '::mcollective':
-        middleware_hosts => [ 'father.grml.org' ],
-    }
-
+        case $hostname {
+            father: {
+                class { '::mcollective':
+                    middleware       => true,
+                    middleware_hosts => [ 'father.grml.org' ],
+                    client            => true,
+                }
+            }
+            default: {
+                class { '::mcollective':
+                    middleware_hosts => [ 'father.grml.org' ],
+                }
+            }
+        }
 }
 
 node 'amd64.grml.org', 'klaus.grml.org' inherits base {
@@ -23,24 +33,16 @@ node 'amd64.grml.org', 'klaus.grml.org' inherits base {
 node 'father.grml.org' inherits base {
     include r10k::prerun_command
     include r10k::mcollective
-
         class { 'r10k':
             remote => 'git://git.grml.org/gsa-puppet.git',
         }
 
 
-    class { '::mcollective':
-        middleware       => true,
-        middleware_hosts => [ 'father.grml.org' ],
-        client            => true,
-    }
 }
 
 node 'monitoring.grml.org' inherits base {
     include ferm
     include ferm::www
-
-
 }
 
 node 'buildhost.grml.org' inherits base {
