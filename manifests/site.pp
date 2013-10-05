@@ -9,30 +9,8 @@ node default {
 }
 
 node base inherits default {
-        include backup
         mcollective::plugin { 'puppet':
                 package => true,
-        }
-        case $hostname {
-            father: {
-                class { '::mcollective':
-                    middleware       => true,
-                    middleware_hosts => [ 'father.grml.org' ],
-                    client            => true,
-                }
-            }
-            repos: {
-                class { '::mcollective':
-                    middleware_hosts => [ 'father.grml.org' ],
-                    client  => true,
-                }
-                include r10k::mcollective::application
-            }
-            default: {
-                class { '::mcollective':
-                    middleware_hosts => [ 'father.grml.org' ],
-                }
-            }
         }
 }
 
