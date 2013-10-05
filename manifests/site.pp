@@ -5,7 +5,6 @@ Exec {
 hiera_include('classes')
 
 node default {
-
 }
 
 node base inherits default {
@@ -19,11 +18,6 @@ node 'amd64.grml.org', 'klaus.grml.org' inherits base {
 }
 
 node 'father.grml.org' inherits base {
-    include r10k::mcollective
-        class { 'r10k':
-            remote => 'git://git.grml.org/gsa-puppet.git',
-        }
-
     git::repo{'repo_name':
         path   => '/etc/puppet/hieradata',
         source => 'https://github.com/grml/grml-hiera.git',
