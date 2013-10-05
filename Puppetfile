@@ -10,3 +10,5 @@ mod 'r10k',
   :git => 'https://github.com/grml/r10k'
 
 mod 'puppetlabs/apt'
+mod 'git',
+    :git => 'https://github.com/nesi/puppet-git.git'
