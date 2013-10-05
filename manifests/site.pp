@@ -15,7 +15,7 @@ node base inherits default {
                 class { '::mcollective':
                     middleware       => true,
                     middleware_hosts => [ 'father.grml.org' ],
-                    psk     => hiera('mcollective_psk'),
+                    tpsk     => hiera('mcollective_psk'),
                     client            => true,
                 }
             }
@@ -33,7 +33,6 @@ node 'amd64.grml.org', 'klaus.grml.org' inherits base {
 }
 
 node 'father.grml.org' inherits base {
-    include r10k::prerun_command
     include r10k::mcollective
         class { 'r10k':
             remote => 'git://git.grml.org/gsa-puppet.git',
