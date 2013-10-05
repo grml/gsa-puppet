@@ -42,7 +42,7 @@ node 'father.grml.org' inherits base {
     git::repo{'repo_name':
         path   => '/etc/puppet/hieradta',
         source => 'https://github.com/grml/grml-hiera.git',
-        update => 'true'
+        update => true
     }
 
 
