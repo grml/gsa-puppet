@@ -14,7 +14,7 @@ node base inherits default {
                 package => true,
         }
         case $hostname {
-            father {
+            father: {
                 class { '::mcollective':
                     middleware       => true,
                     middleware_hosts => [ 'father.grml.org' ],
@@ -22,7 +22,7 @@ node base inherits default {
                     client            => true,
                 }
             }
-            repos {
+            repos: {
                 class { '::mcollective':
                     middleware_hosts => [ 'father.grml.org' ],
                     client  => true,
