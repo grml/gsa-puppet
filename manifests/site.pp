@@ -2,11 +2,7 @@ Exec {
     path => '/usr/bin:/usr/sbin:/bin:/sbin'
 }
 
-node default {
-    include apt-keys
-    include sudo
-    include grml
-}
+hiera_include('classes')
 
 node base inherits default {
         include backup
