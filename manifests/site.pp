@@ -26,6 +26,7 @@ node base inherits default {
                     middleware_hosts => [ 'father.grml.org' ],
                     client  => true,
                 }
+                include r10k::mcollective::application
             }
             default: {
                 class { '::mcollective':
