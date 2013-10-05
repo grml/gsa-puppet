@@ -10,6 +10,3 @@ mod 'r10k',
   :git => 'https://github.com/grml/r10k'
 
 mod 'puppetlabs/apt'
-
-mod 'trocla',
-    :git => 'https://github.com/grml/puppet-trocla.git'
