@@ -14,13 +14,19 @@ node base inherits default {
                 package => true,
         }
         case $hostname {
-            father,repos: {
+            father {
                 class { '::mcollective':
                     middleware       => true,
                     middleware_hosts => [ 'father.grml.org' ],
                     psk     => hiera('mcollective_psk'),
                     client            => true,
                 }
+            }
+            repos {
+                class { '::mcollective':
+                    middleware_hosts => [ 'father.grml.org' ],
+                    client  => true,
+                    psk     => hiera('mcollective_psk'),
             }
             default: {
                 class { '::mcollective':
