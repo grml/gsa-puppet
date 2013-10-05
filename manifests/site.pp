@@ -4,6 +4,10 @@ Exec {
 
 hiera_include('classes')
 
+node default {
+
+}
+
 node base inherits default {
         include backup
         mcollective::plugin { 'puppet':
