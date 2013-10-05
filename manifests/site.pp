@@ -12,8 +12,6 @@ node base inherits default {
     include backup
         case $hostname {
             father: {
-                include trocla::config
-
                 class { '::mcollective':
                     middleware       => true,
                     middleware_hosts => [ 'father.grml.org' ],
