@@ -27,6 +27,7 @@ node base inherits default {
                     middleware_hosts => [ 'father.grml.org' ],
                     client  => true,
                     psk     => hiera('mcollective_psk'),
+                }
             }
             default: {
                 class { '::mcollective':
