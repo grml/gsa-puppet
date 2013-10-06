@@ -1,10 +1,12 @@
 require 'yaml'
 
 Facter.add('location') do
-    location = 'unknown'
-    if FileTest.exist?("/etc/puppet/locations.yaml")
-        data = YAML.load('/etc/puppet/locations.yaml');
-        location = data[Puppet[:certname]]
+    setcode do
+        location = 'unknown'
+        if FileTest.exist?("/etc/puppet/locations.yaml")
+            data = YAML.load_file('/etc/puppet/locations.yaml');
+            location = data[Puppet[:certname]]
+        end
+        location
     end
-    location
 end
