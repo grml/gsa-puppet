@@ -1,4 +1,4 @@
-require 'YAML'
+require 'yaml'
 
 Facter.add('location') do
     location = 'unknown'
