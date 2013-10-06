@@ -12,3 +12,7 @@ mod 'r10k',
 mod 'puppetlabs/apt'
 mod 'git',
     :git => 'https://github.com/nesi/puppet-git.git'
+
+mod 'resolver',
+    :git => 'https://github.com/example42/puppet-resolver.git'
+
