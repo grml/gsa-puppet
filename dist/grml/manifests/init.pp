@@ -113,10 +113,6 @@ class grml {
       group => root,
       source => "puppet:///modules/grml/etc/apt/apt.conf.d/99checkmk";
 
-    "/etc/puppet/locations.yaml":
-      owner => root,
-      group => root,
-      source => "puppet:///modules/grml/etc/puppet/locations.yaml";
   }
 
   set_alternatives { "editor":
