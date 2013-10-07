@@ -5,21 +5,16 @@ Exec {
 hiera_include('classes')
 
 node default {
-}
-
-node base inherits default {
         mcollective::plugin { 'puppet':
                 package => true,
         }
 }
 
-node 'father.grml.org' inherits base {
+node 'father.grml.org' inherits default {
     git::repo{'repo_name':
         path   => '/etc/puppet/hieradata',
         source => 'https://github.com/grml/grml-hiera.git',
     }
-
-
 }
 
 # vim:set et:
