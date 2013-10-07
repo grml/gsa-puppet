@@ -16,3 +16,6 @@ mod 'git',
 mod 'resolver',
     :git => 'https://github.com/example42/puppet-resolver.git'
 
+mod 'puppi',
+    :git => 'https://github.com/example42/puppet-puppi.git'
+
