@@ -1,5 +1,5 @@
 ---
-father.grml.org: hostway
+father.grml.org: hostway_host
 deb.grml.org: hostway
 mail.grml.org: hostway
 misc.grml.org: hostway
@@ -7,7 +7,7 @@ web.grml.org: hostway
 repos.grml.org: hostway
 redmine.grml.org: hostway
 
-klaus.grml.org: snel
+klaus.grml.org: snel_host
 jenkins.grml.org: snel
 blog.grml.org: snel
 backup.grml.org: snel
