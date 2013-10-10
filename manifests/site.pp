@@ -8,6 +8,9 @@ node default {
         mcollective::plugin { 'puppet':
                 package => true,
         }
+        mcollective::plugin { 'package':
+                package => true,
+        }
 }
 
 node 'father.grml.org' inherits default {
