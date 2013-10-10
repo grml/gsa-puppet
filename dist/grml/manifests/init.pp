@@ -6,25 +6,6 @@ define set_alternatives($linkto) {
 
 class grml {
   tag("initial")
-  package { [ vim,
-              zsh,
-              bzip2,
-              lsb-release,
-              less,
-              puppet,
-              apt-dater-host,
-              imvirt,
-	      ncurses-term,
-              grml-etc-core,
-              etckeeper,
-              check-mk-agent,
-              xinetd,
-              rsync,
-              locales,
-              libnagios-plugin-perl
-              ]
-    : ensure => installed }
-
 
   apt::source { 'puppetlabs':
       location   => 'http://apt.puppetlabs.com',
