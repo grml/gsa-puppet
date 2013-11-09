@@ -44,7 +44,8 @@ class ssh {
                     "set LpkGroupDN ou=Group,dc=grml,dc=org",
                     "set LpkSearchTimelimit 3",
                     "set LpkBindTimelimit 3",
-                    "set LpkForceTLS no"
+                    "set LpkForceTLS no",
+                    "set PermitRootLogin without-password"
                 ],
     }
 }
