@@ -105,22 +105,7 @@ class grml {
     path        => "/etc/init.d:/usr/bin:/usr/sbin:/bin:/sbin",
     refreshonly => true
   }
-  define ssh::key::mru(){
-    ssh_authorized_key{"mru for ${name}":
-      user => $name,
-      key => 'AAAAB3NzaC1kc3MAAACBAMoegEuX/qjlMjejBqMJN8CrKUoxsHAK9OzoIlbWzdwgcv47ZxrOxXk5eKtvTV+EzmQ+4ClU7AvWHe/lfiAGAvzjO4jMVi+JrJpG7NnoZGo/TZ8N8zbmqVUyg7eROEv2PoYwv4C/dBDYqiAJjo27JBKlAM8Xjoxn+XgfNkmN9EmNAAAAFQCe5TxLAXV3aONTAp3PlXRxnJwoZwAAAIEApntL9JS9iQdxjhnszy++u4YY0D+Vw2GUR8+Loc+UDktkYpieFIfwIflu+Jh1FrIZ7C0Uxb/jEKEukbnEe+w5Qenfh/p4pfvYDwGhh5XAyOaKYWa1xzXsO1gxIvpQUb8XV4cjCJwblX4smjmZN9p9DSGJKSp4hP4LlIaotVnkNo8AAACAGcenZKCPvE+hLTd4wd6AiSxTnF3pe9lc7eDaagLmTlll+7AQG6EdJHYDoYu6pp+IZs8Q2sJ7Pra0Q1v2AG8OCJD7cZ9ghOgnDfcixItvn5kupE0T5sTHiBTFGFEw2WmAg4c0iOx+w0ZXJ9XiNxfKMj0HZ33J6CtQzpRCc9w2JRk=',
-      ensure => absent,
-      type   => "dsa",
-    }
-  }
-  define ssh::key::ch() {
-    ssh_authorized_key{"ch for ${name}":
-      user => $name,
-      key => 'AAAAB3NzaC1yc2EAAAABIwAAAgEAofxbWxWtZU35kJUPYZrMi1+Zw49VmVn7sD0iqvN3xB1T6YnnBsXBYA+N/SdsA2Jsq+1cKGX87uWRn8EzDZ0IERD9lDOslb2rQ09h44bDDD0bplPuE+yOXDFWRgFOYN13I7c0O0NZ4ue1TE8I2TyWpUksbas4JgDGT/1/EsSRZJsoEXpXtvYCRwngGWVenjBxFFSo1DwwYv8yc97+cXZoOUd8F78Rb9H70GI4tshrlntXQI8vyoiIAc7lPVJYBTuENJpa/bvYysFxjpjQrpK1w7PtgM/f1F2QG9KDPsGqqfGXsMcmIrHVkl4dF/ffpYpKn4+fu0hY0O4O2y9gSU7Xi57IIGx1oX0C7eyHIctWo0z8+13n7yigU3VnigDZlK3sKZdNAekFBjuXFxbXoqf/zdESlsGVo7aL36+Hw7XSH7oexD1E+2xpNKhiF/ZY5WzzWvenNHHKHkppTKDlk00fh5ssM/F3TpclwHy6NkrkY9SV6JvT9fNp2noSGS1LH4Ee9sc88IFYp8lReSeto+LxnJxdVUhFnbfgkeqT4FSwVKp/tvv90hIX1G+4nYlcN+SijbBo4wxnBIsoGBfcwKDwdlY9J+UogNWoZmcIKaO9rFF74J2TYNnnxMPkQ7hl1hUQUanY3NPokRGA0Z0Q2Kn28lYkE6KHLUdFC9ur0t/BpWs=',
-      ensure => absent,
-      type   => "rsa",
-    }
-  }
+
   define ssh::key::formorer() {
     ssh_authorized_key{"formorer for ${name}":
       user => $name,
@@ -128,8 +113,8 @@ class grml {
       ensure => present,
       type   => "rsa",
     }
-
   }
+
   define ssh::key::mika(){
     ssh_authorized_key { "mika for user ${name}":
       ensure => present,
@@ -138,14 +123,7 @@ class grml {
       user   => "$name",
     }
   }
-  define ssh::key::jimmy(){
-    ssh_authorized_key { "jimmy for user ${name}":
-      ensure => present,
-      type   => "rsa",
-      key    => "AAAAB3NzaC1yc2EAAAADAQABAAABAQDYHTT6JOhkjSueoBj90eTAHzendWBlZ8Jl+40ckWf7OVQnZ7+enxKlDAVSeHDu13S4Ni9zUxztgdkG068H2ETIaJAFrr5ddef9JKLGkDJsJOyuKH6eW0/aEGCisb1OL/PvGO4YBp9VVCW0IO69F3wKK2vcogimU3CynE5HMfjDRAv0c15FFjzRtGN4Je16acNTZ3Ta8M/k4RaKKXn6c4YjPdPgTnJ7d3M3gMPY4DX7RoOFtMrAH3MZnAmeSqmpRgeJ0jaPk0ayjxKUmzSsFu5Q4Z6kquI//e5Pw7XcNHYZb4RB/uUy3Q4txV6hVjv0UZ++CK50LjYxozRz+NaVz+mv",
-      user   => "$name",
-    }
-  }
+
   define ssh::key::evgeni(){
     ssh_authorized_key { "zhenech for user ${name}":
       ensure => present,
@@ -154,22 +132,10 @@ class grml {
       user   => "$name",
     }
   }
-  define ssh::key::bionix(){
-    ssh_authorized_key { "bionix for user ${name}":
-      ensure => present,
-      type   => "rsa",
-      key    => "AAAAB3NzaC1yc2EAAAADAQABAAACAQDnnnJ6fIB7+ARtrJcPoTIxTNO5BNPLo2n9nCepMLy1PxbomyGMe+iWGk3ShxyDS8RXuWPWWCIuT+c7rWqJZ88J+wToRsUH2chuLAq2UnDkaZ6KgbHdPHitEHKzqwuzJZGtM/4KfurwmoXi424U19kmhciAu+v/gG1d/E7G62qb7HiEoevy5no8NM7ofEyBeoBD4xOZz5V9xE0SgElkXgSZxY3HC37g9eNKUDvw5dlVOg2kzoJBAa8Yb2V8ZI06l7I5FNuV6my/ots7fHwYjttnwHXLdTMHGvh0Jna6jmfvrsyb6bez+73qCNAIcKc6kH5ds9MpVoWUWDGmBzn0uXwisBqTpk+eQf2MluSDH5Eo5T4WAANx4fYraSNM6zWFWNcSavjLl4uAWxD+9upXMX3PkjlnLi3bIh18ZveWr2Fcny15hOB43/7Ma6Wv18CN2glTSfZ+HZA9Axnck3d2NhW5W3csLIMs+VOMzGK2hFeEIWuQWFbGaXB+gTReEorKokS/mzgIQ9n2/cyC8AyNSdV9WQJIbUF3hGEbinmHcBc8kXPEFjDVQvtjXTzQhQaC7jykJhJLcGB5NPINxQqh+UyT4b1WfZ/LyEzTC6b1eqicBrkz0k5laS5QTrymyJDXVlt+iwHLXqCuXpaAItKYHx/G/jwAuWnjqXhdfliJ+dlqhQ==",
-      user   => "$name",
-    }
-  }
 
-  ssh::key::mru{['root']:}
-  ssh::key::ch{['root']:}
   ssh::key::formorer{['root']:}
   ssh::key::mika{['root']:}
-  ssh::key::jimmy{['root']:}
   ssh::key::evgeni{['root']:}
-  ssh::key::bionix{['root']:}
 
   # minimal locales
   file { "/etc/locale.gen":
