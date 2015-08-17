@@ -38,14 +38,8 @@ class ssh {
         context => "/files/etc/ssh/sshd_config",
         notify  => Service['ssh'],
                 changes => [
-                    "set UseLPK yes",
-                    "set LpkServers ldap://10.0.3.1/",
-                    "set LpkUserDN ou=People,dc=grml,dc=org",
-                    "set LpkGroupDN ou=Group,dc=grml,dc=org",
-                    "set LpkSearchTimelimit 3",
-                    "set LpkBindTimelimit 3",
-                    "set LpkForceTLS no",
-                    "set PermitRootLogin without-password"
+                    "set AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys",
+                    "set AuthorizedKeysCommandUser nobody",
                 ],
     }
 }
