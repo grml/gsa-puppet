@@ -119,7 +119,7 @@ class grml {
     ssh_authorized_key { "mika for user ${name}":
       ensure => present,
       type   => "rsa",
-      key    => "AAAAB3NzaC1yc2EAAAABIwAAAIEA6vOzf8GdTer0WhvWyysyPBhCPKxOo9xKqNpVEZQHizuKbBTdK+DsmFUL0939okik1h8FOx1isIgxzl/JH3x/21Z/yVFB9c8MVlJX/BelVLJ6S4j4AYz2PMKO2uJm4F7U8m8OiwlKbvz3CUSTB5SHEfTAtK5wME3fDtc1MpAWN58=",
+      key    => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCo/bTHFOglnCy/ni9YGR9amZ4wpM76L8VV8kvsCeHRP+Ca/YOGNAXv8ZUibMKwrzaI5yR2GeZcdNJlCGP+l2q2i8O1LU2jeH3J8RFE+tBSM5gmKPXLwqlkY/uiIxF9wljgOjBq1ROzqrZXz+Pxlk4Pa2e/5GIjqvJou3+qseTzjAvi3C6Ac+5wui7Wf8mLL4Nqx8yUkXlFTUEXMOqPxS8uRC/sfarwesTa0t1ZdGCgvlauMG9ngma2FFtzxeE3yO0RR1A5DocMMwKv3ws6DkNE96dmzRR79QwJMEebDG9wSluuH52ouaj/YxZvT8yM4ToIIua1TxVdxLJ1ChHIeDGh',
       user   => "$name",
     }
   }
