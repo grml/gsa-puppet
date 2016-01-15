@@ -1,6 +1,4 @@
 mod 'puppetlabs/ruby'
-mod 'mcollective',
-    :git => 'https://github.com/grml/puppetlabs-mcollective.git'
 
 mod 'puppetlabs/stdlib'
 mod 'richardc/datacat'
